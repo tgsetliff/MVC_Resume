@@ -5095,14 +5095,14 @@ a.list-group-item.active > .badge,
 .jumbotron {
   padding: 30px;
   margin-bottom: 30px;
-  font-size: 21px;
-  font-weight: 200;
+  font-size: 16px;
+  font-weight: 100;
   line-height: 2.1428571435;
   color: inherit;
   background-color: #eeeeee;
 }
 
-.jumbotron h1 {
+.jumbotron h2 {
   line-height: 1;
   color: inherit;
 }
@@ -9189,7 +9189,7 @@ a:hover, a:focus {
   background-image: url('../img/hero-bg.png?1378700994');
   background-repeat: no-repeat;
   background-position: top center;
-  padding-top: 125px;
+  padding-top: 100px;
   padding-bottom: 100px;
   text-align: center;
 }
@@ -9209,7 +9209,6 @@ a:hover, a:focus {
 .header .heading {
   font-family: "Josefin Slab Bold";
   font-size: 2.5em;
-  margin-bottom: 0;
 }
 @media (min-width: 768px) {
   .header .heading {
@@ -9240,26 +9239,26 @@ a:hover, a:focus {
 
 /* avatar */
 .avatar {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
+  -webkit-border-radius: 25%;
+  -moz-border-radius: 25%;
+  -ms-border-radius: 25%;
+  -o-border-radius: 25%;
+  border-radius: 25%;
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
-  border: 20px solid rgba(0, 0, 0, 0.1);
+  border: 10px solid rgba(0, 0, 0, 0.1);
 }
 .avatar img {
-  /* we can't use percentage value for image with border-radius */
-  -webkit-border-radius: 225px;
-  -moz-border-radius: 225px;
-  -ms-border-radius: 225px;
-  -o-border-radius: 225px;
-  border-radius: 225px;
+  /* we can't use percentage value for image with border-radius   was 225*/
+  -webkit-border-radius: 175px;
+  -moz-border-radius: 175px;
+  -ms-border-radius: 175px;
+  -o-border-radius: 175px;
+  border-radius: 175px;
   width: 100%;
   margin: 0 auto;
 }
@@ -9283,7 +9282,7 @@ a:hover, a:focus {
 /*	About Me
 /*------------------------------------------------*/
 .about-me {
-  background-color: #FAD2B0;
+  background-color: #999;
 }
 
 .social .sub-heading {
@@ -9349,17 +9348,20 @@ ul.social-icons .icon:hover {
 /*	Skills
 /*------------------------------------------------*/
 .skills {
-    background-color: #ffe9c8;
+    background-color: #999;
 }
 /*------------------------------------------------*/
 /*	Resume
 /*------------------------------------------------*/
 .resume {
-  background-color: #f4debe;
+  background-color: #999;
 }
 
 /* timeline */
-.timeline {
+.timeline{
+    background-color: #999
+}
+/*.timeline {
   background-image: url('../img/vertical-line.png?1378694750');
   background-repeat: repeat-y;
   background-position: 50% 0;
@@ -9439,19 +9441,20 @@ ul.social-icons .icon:hover {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: left;
   margin-bottom: 0;
-}
+}*/
 
 /*------------------------------------------------*/
 /*	Projects
 /*------------------------------------------------*/
+
 .projects {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-image: url('../img/project-bg.png?1378697528');
+/*  background-image: url('../img/project-bg.png?1378697528');  */
   background-repeat: no-repeat;
-  background-background-color: black;
+  background-color: #999;
   color: white;
 }
 .projects .heading {
@@ -9528,9 +9531,10 @@ ul.social-icons .icon:hover {
   top: 0;
   left: 0;
 }
+/* affects box behind png */
 @media (min-width: 992px) {
   .project-grid figcaption {
-    position: absolute;
+    position:  absolute;
     background: rgba(210, 210, 210, 0.1);
   }
 }
@@ -9574,7 +9578,7 @@ ul.social-icons .icon:hover {
   .project-effect-shrink figure .project-item-info a {
     position: absolute;
     right: 20px;
-    top: 10px;
+    top: 50px;
     padding: 7px 12px;
     font-size: 0.8em;
     color: #c1d7f5;
@@ -9614,7 +9618,7 @@ ul.social-icons .icon:hover {
 /*	Contacts
 /*------------------------------------------------*/
 .contacts {
-  background-color: #eed9b8;
+  background-color: #999;
 }
 .contacts .google-map {
   margin: 40px 0;

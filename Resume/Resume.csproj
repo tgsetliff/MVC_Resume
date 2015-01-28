@@ -188,15 +188,17 @@
     <Content Include="Content\Site.css" />
     <Content Include="img\22d47bjg.bmp" />
     <Content Include="img\big-thing-landing-page.png" />
-    <Content Include="img\c#.png" />
+    <Content Include="img\c.png" />
     <Content Include="img\headshot.png" />
     <Content Include="img\hero-bg.png" />
+    <Content Include="img\js.png" />
     <Content Include="img\profile-picture.png" />
     <Content Include="img\project-bg.png" />
     <Content Include="img\project-folder.png" />
     <Content Include="img\skills.png" />
     <Content Include="img\tiick-tock-coming-soon-page.png" />
     <Content Include="img\vertical-line.png" />
+    <Content Include="Javascript Exercise.html" />
     <Content Include="old_index.html" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\html5shiv.js" />
@@ -273,6 +275,7 @@
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
+    <Content Include="TomSetliffResume.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

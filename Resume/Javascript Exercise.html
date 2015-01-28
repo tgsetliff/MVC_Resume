@@ -1,0 +1,664 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Javascript Exercises</title>
+
+    <link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />  
+    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>           
+    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>     
+    <script src="scripts/Syntax/shBrushJScript.js"></script>
+    <link href="css/Syntax/shCore.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/Syntax/shThemeFadeToGrey.css" rel="stylesheet" />           
+    
+</head>
+<body>
+    <style>
+        #header {background-color:lightgrey;
+            color:white;
+            text-align:center;
+            padding:5px;
+        }
+    </style>
+
+    <div id="header">
+        <h1>Javascript Exercise</h1>
+    </div>
+
+    <div class="container">
+        <div class="row" style="padding:5px">
+            <div class="col-md-12">
+            </div>
+        </div>
+
+        <div class="row" style="padding:5px">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob1Modal">
+                    Find Largest Number
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob2Modal">
+                    Sum and Multiply
+                </button>
+            </div>
+        </div>
+        <div class="row" style="padding:5px">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="row" style="padding:5px">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob3Modal">
+                    Factorial of a Number
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob4Modal">
+                    Palindrome
+                </button>
+            </div>
+        </div>
+        <div class="row" style="padding:5px">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="row" style="padding:5px">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob5Modal">
+                    FizzBuzz
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob6Modal">
+                    Perfect Numbers
+                </button>
+            </div>
+        </div>
+        <div class="row" style="padding:5px">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="row" style="padding:5px">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob7Modal">
+                    Happy Numbers
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob8Modal">
+                    Armstrong Numbers
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Find Largest Number-->
+    <div class="container">
+        <div class="row">
+            <div class="modal fade" id="prob1Modal" tabindex="-1" role="dialog" aria-labelledby="prob1ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Find Largest Number</h4>
+                            <p>This problem accepts multiple numbers, separated by a comma and returns the largest number entered</p>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div id="prob1Input">
+                                        <label>Input 3 Numbers to check</label>
+                                        <input type="text" id="prob1" /><br />
+                                        <button type="button" onclick="fndLg(prob1.value)">Get Result</button><br />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Result: </label>
+                                    <input type="text" id="prob1Output" disabled />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div style="margin-right: 15px;">
+                                            <pre class="brush: js; ruler: true;" style="margin-right:10px;">
+                                                function fndLg() {
+                                                    var p1Arr = document.getElementById('prob1').value;
+                                                    var lgArr = [];
+                                                    lgArr = p1Arr.split(",");
+                                                    var largest = 0;
+                                                    for (i = 0; i < lgArr.length; i++) {
+                                                        if (largest < parseInt(lgArr[i])) {
+                                                            largest = parseInt(lgArr[i]);
+                                                        }
+                                                    }
+                                                    document.getElementById('prob1Output').value = largest;
+                                                }                                   
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+    <!-- Sum/Multiply Largest Number-->
+    <div class="container">
+        <div class="row">
+            <div class="modal fade" id="prob2Modal" tabindex="-1" role="dialog" aria-labelledby="prob2ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Sum and Multiply Numbers</h4>
+                            <p>This problem accepts multiple numbers, separated by a comma and returns the sum of the numbers added AND the sum of multiplying each of the numbers and adding the results together</p>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div id="prob2Input">
+                                        <label>Input Numbers to process</label><input type="text" id="prob2" /><br />
+                                        <button type="button" onclick="sumMult(prob2.value)">Get Result</button><br />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Result: </label>
+                                    <input type="text" id="prob2Output" disabled />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div style="margin-right: 15px;">
+                                            <pre class="brush: js; ruler: true;" style="margin-right:10px;">
+                                            function sumMult(p2Arr) {
+                                                var lgArr = [];
+                                                lgArr = p2Arr.split(",");
+                                                sumTot = sum(lgArr);
+                                                multTot = mult(lgArr);
+                                                document.getElementById('prob2Output').value = sumTot + "," + multTot;
+                                            }
+                                            function sum(numArray) {
+                                                var sumTot = 0;
+                                                for (var i = 0; i < numArray.length; i++) {
+                                                    sumTot = sumTot + parseInt(numArray[i]);
+                                                }
+                                                return sumTot;
+                                            }
+        
+                                            function mult(numArray) {
+                                                var multTot = 0;
+                                                for (var i = 0; i < numArray.length; i++) {
+                                                    if (i === 0) {
+                                                        multTot = parseInt(numArray[i]);
+                                                    }
+                                                    else {
+                                                        multTot = multTot * parseInt(numArray[i]);
+                                                    }
+                                                }
+                                                return multTot;
+                                            }
+                                    
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+    <!-- Find Factorial-->
+    <div class="container">
+        <div class="row">
+            <div class="modal fade" id="prob3Modal" tabindex="-1" role="dialog" aria-labelledby="prob3ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                            <h4 class="modal-title">Find Factorial of a Number</h4>
+                            <p>This problem accepts a number as input and calculates the factorial of the number</p>
+                        </div>
+                        <div class="modal-header">
+                            <p>The factorial of a non-negative integer n denoted by n!, is the product of all positive integers less than or equal to n.</p>
+                            <p>(i.e. 5!=5x4x3x2x1 = 120)</p>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div id="prob3Input">
+                                        <label>Input Number to Factorial</label><input type="number" id="prob3" /><br />
+                                        <button type="button" onclick="fact(prob3.value)">Get Result</button><br />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Result: </label>
+                                    <input type="text" id="prob3Output" disabled />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div style="margin-right: 15px;">
+                                            <pre class="brush: js; ruler: true;" style="margin-right:10px;">
+                                            function fact(numFact) {
+                                                var prodTot = numFact;
+                                                for (i = numFact-1; i > 1; i--) {
+                                                    prodTot = prodTot * i;
+                                                }
+                                                document.getElementById('prob3Output').value = prodTot;
+                                            }                                    
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+    <!-- Palindrome-->
+    <div class="container">
+        <div class="row">
+            <div class="modal fade" id="prob4Modal" tabindex="-1" role="dialog" aria-labelledby="prob4ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Determine if a Palindrome</h4>
+                            <p>This problem accepts a word as input and evaluates if it is a Palindrome</p>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div id="prob4Input">
+                                        <label>Input Word</label><input type="text" id="prob4" /><br />
+                                        <button type="button" onclick="pal(prob4.value)">Get Result</button><br />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Result: </label>
+                                    <input type="text" id="prob4Output" disabled />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div style="margin-right: 15px;">
+                                            <pre class="brush: js; ruler: true;" style="margin-right:10px;">
+                                            function pal(text) {
+                                                var arrText = text.split("") .reverse() .join("");
+                                                var test = text.split("").join("");
+                                                arrText = arrText.toLowerCase();
+                                                test = test.toLowerCase();
+                                                var palTest = (arrText == test) ? "True" : "False";
+            
+                                                document.getElementById('prob4Output').value = palTest;            
+                                            }                               
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div><!--row-->
+    </div>
+
+    <!-- FizzBuzz-->
+    <div class="container">
+        <div class="row">
+            <div class="modal fade" id="prob5Modal" tabindex="-1" role="dialog" aria-labelledby="prob5ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">FizzBuzz</h4>
+                            <p>This problem iterates integers from 1 to 100. For integers divisible by 3, it outputs Fizz. For integers divisible by 5, it outputs Buzz. For integers divisible by both 3 and 5, it outputs FizzBuzz</p>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div id="prob5Input">
+                                        <button type="button" onclick="fizzBuzz()">FizzBuzz</button><br />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Result: </label>
+                                    <input type="text" size="20" height="15" id="prob5Output" disabled />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div style="margin-right: 15px;">
+                                            <pre class="brush: js; ruler: true;" style="margin-right:10px;">
+                                            function fizzBuzz() {
+                                                var i = 1;
+                                                var x = 0;
+                                                var y = 0;
+                                                var prob5Out = "";
+                                                var text = (1).toString();
+                                                while (i <= 100) {
+                                                    x = i;
+                                                    x %= 3;
+                                                    y = i;
+                                                    y %= 5;
+                                                    text = i.toString();
+                                                    if (y == 0) { text = 'Buzz'; }
+                                                    if (x == 0) { text = 'Fizz'; }
+                                                    if (x == 0 && y == 0) { text = 'FizzBuzz'; }
+                                                    prob5Out = prob5Out + text + ",";
+                                                     i++;
+                                                }
+                                                document.getElementById('prob5Output').value = prob5Out;
+                                            }                               
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+    <!-- Perfect Number-->
+    <div class="container">
+        <div class="row">
+           <div class="modal fade" id="prob6Modal" tabindex="-1" role="dialog" aria-labelledby="prob6ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Perfect Number</h4>
+                            <p>This problem has two (2) functions. The first will determine if a given number is a Perfect Number. The second will determine all of the Perfect Numbers between 1 and 1,000,000</p>
+                        </div>
+                        <div class="modal-header">
+                            <p>A Perfect Number is a positive integer that is equal to the sum of its proper divisors excluding the number itself</p>
+                            <p>(i.e. 6 is an Perfect Number since 1 + 2 + 3 = 6)</p>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div style="margin-right: 15px;">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div id="prob61AInput">
+                                                <label>Input Number to evaluate:</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div id="prob61BInput">
+                                                <input type="number" size="6" id="prob6" />
+                                                <button type="button" onclick="prfHandler(prob6.value)">Evaluate</button><br />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div id="prob6Out">
+                                                <input type="text" id="prob6Output" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div id="prob62Input">
+                                                <button type="button" onclick="prfHandler()">Find Perfect Numbers</button><br />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div id="prob62Out">
+                                                    <input type="text" id="prob62Output" disabled />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div style="margin-right: 15px;">
+                                        <pre class="brush: js; ruler: true;" style="margin-right:10px;">
+                                        function prfHandler(n) {
+                                            var num = parseInt(n);
+                                            var tmpNum = 0;
+                                            if (num > 0) {
+                                                tmpNum = prfNum(n);
+                                                document.getElementById('prob6Output').value = ((tmpNum === num) ? "True" : "False");
+                                            }
+                                            else {
+                                                var prfArr = [];
+                                                num = 0;
+                                                for (var i = 1; i <= 1000; i++) {
+                                                    num += i;
+                                                    tmpNum = prfNum(num);
+                                                    if (tmpNum === num) {
+                                                        prfArr.push(tmpNum);
+                                                    }
+                                                }
+                                                document.getElementById('prob62Output').value = prfArr;
+                                            }
+                                        }
+                                        function prfNum(num) {
+                                            var prfAnswer = "";
+                                            var i = 0;
+                                            var temp = 0;
+                                            n = parseInt(num);
+                                            for (i = 1; i <= n / 2; i++) {
+                                                if (n % i == 0) {
+                                                    temp += i;
+                                                }
+                                            }
+                                            return temp;
+                                        }  
+                                    </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+
+    <!-- Happy Number-->
+    <div class="container">
+        <div class="row">
+            <div class="modal fade" id="prob7Modal" tabindex="-1" role="dialog" aria-labelledby="prob7ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Happy Numbers</h4>
+                            <p>This problem will calculate and display the first 5 Happy Numbers</p>
+                        </div>
+                        <div class="modal-header">
+                            <p>Happy Numbers are positive integers that can be reduced to one (1) by replacing the number with the sum of the square of its digits and repeat until the result is 1 or an endless loop. The endless loop is prevented by tracking the numbers calculated and when a repeat occurs, the loop ends.</p>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div id="prob7Input">
+                                        <button type="button" onclick="fndHappy()">Happy Numbers</button><br />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Result: </label>
+                                    <input type="text" id="prob7Output" disabled />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div style="margin-right: 15px;">
+                                            <pre class="brush: js; ruler: true;" style="margin-right:10px;">
+                                            function fndHappy() {
+                                                var cnt = 1;
+                                                var number = 1;
+                                                var arrHappy = [];
+                                                var n = 0;
+                                                var chk = [];
+                                                
+                                                // while number is not 1
+                                                while (n != 1) {
+                                                    // on first pass, n will be 0 so set to 1
+                                                    if (n === 0) {
+                                                        n = number;
+                                                    }
+                                                    var digits = getDigits(n, 2);      // get computed power for each digit
+                                                    var n = sum(digits);                    // sum the computed powers
+                                                    if (n != 1) {
+                                                        var x = chk.indexOf(n)
+                                                        if (x < 0){
+                                                            chk.push(n)
+                                                        }
+                                                        else {
+                                                            chk = [];
+                                                            number++;
+                                                            n = number;
+                                                        }
+                                                    }
+                                                    else {
+                                                        arrHappy.push(number);
+                                                        cnt++;
+                                                        number++;
+                                                        n = number;
+                                                    }
+                                                    if (cnt === 5) {
+                                                        document.getElementById('prob7Output').value = arrHappy;
+                                                        n = 1;
+                                                    }
+                                                }
+                                            }
+                                            function happy(number) {
+                                                var digits = getDigits(number, 2);
+                                                var digitSum = sum(digits);
+                                                return (digitSum == 1);
+                                            }         
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+    <!-- Armstrong Number-->
+    <div class="container">
+        <div class="row">
+            <div class="modal fade" id="prob8Modal" tabindex="-1" role="dialog" aria-labelledby="prob8ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Armstrong Numbers</h4>
+                            <p>This problem will calculate and display all 3 digit Armstrong Numbers</p>
+                        </div>
+                        <div class="modal-header">
+                            <p>An Armstrong Number is an integer such that the sum of the cube of it's digits is equal to the number itself</p>
+                            <p>(i.e. 371 is an Armstrong number since 3cubed + 7cubed + 1cubed = 371)</p>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div id="prob8Input">
+                                        <button type="button" onclick="fndAs()">Armstrong Numbers</button><br />
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Result: </label>
+                                    <input type="text" id="prob8Output" disabled />
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div style="margin-right: 15px;">
+                                            <pre class="brush: js; ruler: true;" style="margin-right:10px;">                                                                                            
+                                            function fndAs() {
+                                                var asArr = [];
+                                                for (x = 100; x < 1000; x++) {
+                                                    var digits = getDigits(x, 3);  // get total of digits to given power
+                                                    var digitSum = sum(digits);
+                                                    if (x == digitSum) {
+                                                        asArr.push(x);
+                                                    }
+                                                }
+                                                document.getElementById('prob8Output').value = asArr;
+                                            }
+
+                                            function getDigits(number, power) {
+                                                if (typeof (power) == 'undefined')
+                                                    power = 1;
+        
+                                                var n = (number + "").split("");    // make n an array of digits
+                                                // loop through n and get the power of each digit
+                                                for (i = 0; i < n.length; i++) {
+                                                    n[i] = Math.pow(n[i], power);
+                                                }
+                                                return n;
+                                            }
+                                            function sum(numArray) {
+                                                var sumTot = 0;
+                                                for (var i = 0; i < numArray.length; i++) {
+                                                    sumTot = sumTot + parseInt(numArray[i]);
+                                                }
+                                                return sumTot;
+                                            }
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+    <script>
+        SyntaxHighlighter.all();
+    </script>
+
+    <script src="scripts/jquery-2.1.3.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/utilities.js"></script>
+    <script src="scripts/problem1.js"></script>
+    <script src="scripts/Problem2.js"></script>
+    <script src="scripts/Problem3.js"></script>
+    <script src="scripts/Problem4.js"></script>
+    <script src="scripts/Problem5.js"></script>
+    <script src="scripts/Problem6.js"></script>
+    <script src="scripts/Problem7.js"></script>
+    <script src="scripts/Problem8.js"></script>
+
+</body>
+
+</html>
