@@ -9213,11 +9213,13 @@ a:hover, a:focus {
 @media (min-width: 768px) {
   .header .heading {
     font-size: 3.5em;
+    color:antiquewhite;
   }
 }
 .header p {
   font-size: 1.5em;
   margin-bottom: 45px;
+  color:antiquewhite;
 }
 .header .btn {
   margin-right: 0;
@@ -9682,33 +9684,33 @@ ul.social-icons .icon:hover {
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
-  background-color: #f3e4cd;
+  background-color: #cccccc;            /*#f3e4cd*/
   border: 1px solid #e9cea3;
-  color: #d0973d;
+  color: #000;                         /*#d0973d*/
 }
 .contact-form input[type="text"]::-webkit-input-placeholder,
 .contact-form input[type="email"]::-webkit-input-placeholder,
 .contact-form textarea::-webkit-input-placeholder {
   /* WebKit browsers */
-  color: #e4c38f;
+  color: rgba(0, 0, 0, 0.5);
 }
 .contact-form input[type="text"]:-moz-placeholder,
 .contact-form input[type="email"]:-moz-placeholder,
 .contact-form textarea:-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  color: #e4c38f;
+  color: rgba(0, 0, 0, 0.5);
 }
 .contact-form input[type="text"]::-moz-placeholder,
 .contact-form input[type="email"]::-moz-placeholder,
 .contact-form textarea::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  color: #e4c38f;
+  color: rgba(0, 0, 0, 0.5);
 }
 .contact-form input[type="text"]:-ms-input-placeholder,
 .contact-form input[type="email"]:-ms-input-placeholder,
 .contact-form textarea:-ms-input-placeholder {
   /* Internet Explorer 10+ */
-  color: #e4c38f;
+  color: rgba(0, 0, 0, 0.5);                  /*#e4c38f*/
 }
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
