@@ -198,6 +198,11 @@
     <Content Include="img\22d47bjg.bmp" />
     <Content Include="img\big-thing-landing-page.png" />
     <Content Include="img\c.png" />
+    <Content Include="img\glyphicons\glyphicons-11-envelope.png" />
+    <Content Include="img\glyphicons\glyphicons-263-spade.png" />
+    <Content Include="img\glyphicons\glyphicons-30-notes-2.png" />
+    <Content Include="img\glyphicons\glyphicons-4-user.png" />
+    <Content Include="img\glyphicons\glyphicons-461-blacksmith.png" />
     <Content Include="img\headshot.png" />
     <Content Include="img\hero-bg.png" />
     <Content Include="img\js.png" />
@@ -290,7 +295,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
-    <Content Include="TomSetliffResume.pdf" />
+    <Content Include="Tom Setliff Resume.doc" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

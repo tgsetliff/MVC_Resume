@@ -9061,7 +9061,7 @@ a:hover, a:focus {
 
 .glyphicon,
 .icon {
-  color: #aea08b;
+  color: #6C77AB;
 }
 
 .section {
@@ -9069,8 +9069,8 @@ a:hover, a:focus {
 }
 .section .heading {
   font-family: "Josefin Slab Light";
-  color: #bc341b;
-  font-size: 3em;
+  color: #0B0A0A;
+  font-size: 2em;
   line-height: 1.6;
   margin-top: 0;
   margin-bottom: 20px;
@@ -9204,7 +9204,7 @@ a:hover, a:focus {
   color: white;
 }
 .header .right {
-  padding-top: 3em;
+  padding-top: 1em;
 }
 .header .heading {
   font-family: "Josefin Slab Bold";
@@ -9280,6 +9280,24 @@ a:hover, a:focus {
   width: 100%;
 }
 
+/* newtab cell */
+.newtab-cell{
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius:10%;
+    -o-border-radius: 10%;
+    border-radius: 10%;
+    border: 10px solid rgba(0, 0, 0, 0.1);
+    height: 95px; 
+    background-color: #8b8383;
+}
+
+/* tab title */
+.tab-title{
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+}
 /*------------------------------------------------*/
 /*	About Me
 /*------------------------------------------------*/
