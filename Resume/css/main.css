@@ -330,7 +330,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #ffffff; 
 }
 
 input,
@@ -9468,17 +9468,17 @@ ul.social-icons .icon:hover {
 /*------------------------------------------------*/
 
 .projects {
-  -webkit-background-size: cover;
+ /* -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-/*  background-image: url('../img/project-bg.png?1378697528');  */
-  background-repeat: no-repeat;
+  background-image: url('../img/project-bg.png?1378697528');  
+  background-repeat: no-repeat;         */
   background-color: #999;
-  color: white;
+  /*color: white;*/
 }
-.projects .heading {
-  color: white;
+/*.projects .heading {
+  color: white;*/
 }
 
 /* project grid */
@@ -9783,4 +9783,8 @@ ul.social-icons .icon:hover {
 }
 .footer p {
   margin-bottom: 0;
+}
+
+.nolink, .nolink:hover, .nolink:active, .nolink:focus {
+    text-decoration:none!important;
 }

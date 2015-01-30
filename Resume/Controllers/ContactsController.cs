@@ -21,6 +21,7 @@ namespace Resume.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(ContactMessage contactform)
         {
             

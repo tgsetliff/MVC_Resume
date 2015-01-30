@@ -17,10 +17,12 @@
         <!-- navigation links -->
         <div class="collapse navbar-collapse main-nav-collapse">
             <ul class="nav navbar-nav">
+                <li><a href="/Home">HOME</a></li>
                 <li><a href="/Profile">ABOUT ME</a></li>
                 <li><a href="/Skills">SKILLS</a></li>
-                <li><a href="/Projects">PROJECTS</a></li>
                 <li><a href="/Experience">RESUME</a></li>
+                <li><a href="/Contact">CONTACTS</a></li>
+                <li><a href="/Projects">PROJECTS</a></li>
             </ul>
         </div>
 
@@ -31,7 +33,7 @@
     <div class="container">
         <div class="col-lg-push-4">
             <div class="row">
-                    <a href="/Home" class="btn btn-default btn-sm">Back</a><h2 class="heading text-center">CONTACTS</h2>
+                <h2 class="heading text-center">CONTACTS</h2>
             </div>
         </div>
         <div class="row contacts">
@@ -58,6 +60,9 @@
                     <div class="contact-form margin-bottom">
                         <div class="alert"></div>
                         <form action="@Url.Action("Index", "Contact")" method="post" name="contactform">
+
+                            @Html.AntiForgeryToken()
+
                             <label for="name">Name:</label>
                             <input type="text" id="Name" name="Name" value="" placeholder="your name*" required="required" data-val="true" data-placement="bottom">
                             <label for="email">Email:</label>
