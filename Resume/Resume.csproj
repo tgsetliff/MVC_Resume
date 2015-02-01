@@ -214,6 +214,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="img\22d47bjg.bmp" />
     <Content Include="img\big-thing-landing-page.png" />
+    <Content Include="img\bricks.png" />
     <Content Include="img\c.png" />
     <Content Include="img\contact.png" />
     <Content Include="img\development_skills.png" />
@@ -260,6 +261,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\SetliffT - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\SetliffT - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

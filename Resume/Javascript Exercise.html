@@ -25,70 +25,89 @@
         <h1>Javascript Exercise</h1>
     </div>
 
-    <div class="container">
+    <div class="container" id="body">
         <div class="row" style="padding:5px">
             <div class="col-md-12">
             </div>
         </div>
 
-        <div class="row" style="padding:5px">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob1Modal">
-                    Find Largest Number
-                </button>
-            </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob2Modal">
-                    Sum and Multiply
-                </button>
-            </div>
-        </div>
-        <div class="row" style="padding:5px">
+        <div class="row">
             <div class="col-md-12">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob1Modal" style="width:200px">
+                        Find Largest Number
+                    </button>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob2Modal" style="width:200px">
+                        Sum and Multiply
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="row" style="padding:5px">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob3Modal">
-                    Factorial of a Number
-                </button>
-            </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob4Modal">
-                    Palindrome
-                </button>
-            </div>
-        </div>
-        <div class="row" style="padding:5px">
+        <div class="row">
             <div class="col-md-12">
+                <br />
             </div>
         </div>
-        <div class="row" style="padding:5px">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob5Modal">
-                    FizzBuzz
-                </button>
-            </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob6Modal">
-                    Perfect Numbers
-                </button>
-            </div>
-        </div>
-        <div class="row" style="padding:5px">
+        <div class="row">
             <div class="col-md-12">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob3Modal" style="width:200px">
+                        Factorial of a Number
+                    </button>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob4Modal" style="width:200px">
+                        Palindrome
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="row" style="padding:5px">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob7Modal">
-                    Happy Numbers
-                </button>
+        <div class="row">
+            <div class="col-md-12">
+                <br />
             </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob8Modal">
-                    Armstrong Numbers
-                </button>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob5Modal" style="width:200px">
+                        FizzBuzz
+                    </button>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob6Modal" style="width:200px">
+                        Perfect Numbers
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob7Modal" style="width:200px">
+                        Happy Numbers
+                    </button>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#prob8Modal" style="width:200px">
+                        Armstrong Numbers
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -395,36 +414,44 @@
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <div style="margin-right: 15px;">
-                                    <div class="col-md-6">
+                                <div class="col-lg-6">
+                                    <div class="col-md-12">
                                         <div class="row">
                                             <div id="prob61AInput">
-                                                <label>Input Number to evaluate:</label>
+                                                <div class="col-md-5">
+                                                    <label>Number to evaluate:</label>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="number" style="width: 120px" id="prob6" />
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div id="prob61BInput">
-                                                <input type="number" size="6" id="prob6" />
-                                                <button type="button" onclick="prfHandler(prob6.value)">Evaluate</button><br />
+                                            <div class="col-lg-5">
+                                                <div id="prob61BInput">
+                                                    <button type="button" onclick="prfHandler(prob6.value)">Evaluate</button><br />
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div id="prob6Out">
-                                                <input type="text" id="prob6Output" disabled />
+                                            <div class="col-lg-7">
+                                                <div id="prob6Out">
+                                                    <input type="text" id="prob6Output" disabled />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="row">
+                                 </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div id="prob62Input">
                                                 <button type="button" onclick="prfHandler()">Find Perfect Numbers</button><br />
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div id="prob62Out">
-                                                    <input type="text" id="prob62Output" disabled />
-                                                </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div id="prob62Out">
+                                                <input type="text" id="prob62Output" disabled />
                                             </div>
                                         </div>
                                     </div>
