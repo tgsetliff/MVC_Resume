@@ -165,6 +165,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogArticleController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\ExperienceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -175,7 +176,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BlogArticle.cs" />
+    <Compile Include="Models\BlogComment.cs" />
     <Compile Include="Models\ContactMessage.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -221,10 +225,13 @@
     <Content Include="img\glyphicons\glyphicons-11-envelope.png" />
     <Content Include="img\glyphicons\glyphicons-263-spade.png" />
     <Content Include="img\glyphicons\glyphicons-30-notes-2.png" />
+    <Content Include="img\glyphicons\glyphicons-31-pencil.png" />
     <Content Include="img\glyphicons\glyphicons-4-user.png" />
     <Content Include="img\glyphicons\glyphicons-461-blacksmith.png" />
+    <Content Include="img\glyphicons\social-6-blogger.png" />
     <Content Include="img\headshot.png" />
     <Content Include="img\hero-bg.png" />
+    <Content Include="img\hero-sm.png" />
     <Content Include="img\js.png" />
     <Content Include="img\profile-picture.png" />
     <Content Include="img\profile.png" />
@@ -357,6 +364,11 @@
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
     <Content Include="Tom Setliff Resume.doc" />
+    <Content Include="Views\BlogArticle\Create.cshtml" />
+    <Content Include="Views\BlogArticle\Delete.cshtml" />
+    <Content Include="Views\BlogArticle\Details.cshtml" />
+    <Content Include="Views\BlogArticle\Edit.cshtml" />
+    <Content Include="Views\BlogArticle\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

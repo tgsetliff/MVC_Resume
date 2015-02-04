@@ -1,0 +1,109 @@
+﻿@model Resume.Models.BlogArticle
+
+@{
+    ViewBag.Title = "Edit";
+}
+<nav class="navbar navbar-default navbar-fixed-top" id="main-nav" role="navigation">
+    <div class="container">
+        <!-- brand and toggle -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- navigation links -->
+        <div class="collapse navbar-collapse main-nav-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/Home">HOME</a></li>
+                <li><a href="/Profile">ABOUT ME</a></li>
+                <li><a href="/Skills">SKILLS</a></li>
+                <li><a href="/Experience">RESUME</a></li>
+                <li><a href="/Contact">CONTACTS</a></li>
+                <li><a href="/Projects">PROJECTS</a></li>
+                <li><a href="/blogArticle">BLOG</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section class="section details" id="details">
+        <div class="container">
+            <div class="col-lg-push-4">
+                <form action="@Url.Action("Edit", "BlogArticle")" method="post">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <label>Title</label>
+                            </div>
+                            <div class="col-md6">
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Body</label>
+                            </div>
+                            <div class="col-md-8">
+                                <textarea name="text" autofocus style="height:150px; width:800px">
+                                    @if (Model != null)
+                                    { @Model.Body}
+                                </textarea>
+                                @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Date Updated</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="datetime" name="UpdateDate" value="@if(@Model != null) { @Model.UpdateDate}">
+                                @Html.ValidationMessageFor(model => model.UpdateDate, "", new { @class = "text-danger" })
+                            </div>                                
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Media URL</label>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.MediaUrl, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MediaUrl, "", new { @class = "text-danger" })
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Published</label>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.Published)
+                                @Html.ValidationMessageFor(model => model.Published, "", new { @class = "text-danger" })
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

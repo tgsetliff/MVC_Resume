@@ -9765,6 +9765,37 @@ ul.social-icons .icon:hover {
 }
 
 /*------------------------------------------------*/
+/*	blog page
+/*------------------------------------------------*/
+.blog {
+   background-color: #999;
+   padding-top: 50px;
+   padding-bottom: 100px;
+}
+
+/*------------------------------------------------*/
+/*	blog details page
+/*------------------------------------------------*/
+.details {
+   background-color: #999;
+   padding-top: 50px;
+   padding-bottom: 100px;
+}
+
+.blogbody{
+	margin: 0;
+	font-family: Arial, Helvetica, Georgia, Sans-serif;
+	font-size: 14px;
+	text-align: left;
+	vertical-align: top;
+    border-width: 5px;
+    border-color:black;
+    padding-top: 20px;
+    padding-bottom: 50px;
+	color: #000;	
+}
+
+/*------------------------------------------------*/
 /*	Footer
 /*------------------------------------------------*/
 .footer {

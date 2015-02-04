@@ -1,0 +1,103 @@
+﻿@model Resume.Models.BlogArticle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<nav class="navbar navbar-default navbar-fixed-top" id="main-nav" role="navigation">
+    <div class="container">
+        <!-- brand and toggle -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- navigation links -->
+        <div class="collapse navbar-collapse main-nav-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/Home">HOME</a></li>
+                <li><a href="/Profile">ABOUT ME</a></li>
+                <li><a href="/Skills">SKILLS</a></li>
+                <li><a href="/Experience">RESUME</a></li>
+                <li><a href="/Contact">CONTACTS</a></li>
+                <li><a href="/Projects">PROJECTS</a></li>
+                <li><a href="/BlogArticle">BLOG</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="section details" id="details">
+    <div class="container" id="details-title">
+        <div class="col-lg-push-4">
+            <div class="row">
+                <img src="/img/hero-sm.png" />
+            </div>
+        </div>    
+    </div>
+    <div class="container" id="details-body">           
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="row">
+                        <br />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="heading text-center">@Html.DisplayFor(model => model.Title)</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>            
+                <div class="col-md-8">
+                    <div class="blogbody" id="blogbody">
+                        @Html.DisplayFor(model => model.Body)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="details-other">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-1">
+                    <p>Posted:</p>
+                </div>
+                <div class="col-md-3">
+                    @Html.DisplayFor(model => model.CreateDate)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <p>Updated:</p>
+                </div>
+                <div class="col-md-3">
+                    @Html.DisplayFor(model => model.UpdateDate)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <p>URL:</p>
+                </div>
+                <div class="col-md-8">
+                    @Html.DisplayFor(model => model.MediaUrl)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <p>Published:</p>
+                </div>
+                <div class="col-md-8">
+                    @Html.DisplayFor(model => model.Published)
+                </div>
+            </div>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</section>

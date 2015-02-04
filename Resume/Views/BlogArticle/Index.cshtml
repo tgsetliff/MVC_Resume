@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Resume.Models.BlogArticle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="section blog" id="blog">
+    <div class="container" id="blogContainer">
+        <div class="col-lg-push-4">
+            <div class="row">
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <h2 class="heading text-center">My Developer Blog</h2>
+            </div>
+        </div>
+        <div class="col-lg-push-4">
+
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreateDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Body)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MediaUrl)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Published)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreateDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Body)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MediaUrl)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Published)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</section>
