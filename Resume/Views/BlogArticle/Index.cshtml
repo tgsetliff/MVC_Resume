@@ -1,37 +1,73 @@
-﻿@model IEnumerable<Resume.Models.BlogArticle>
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model PagedList.PagedList<Resume.Models.BlogArticle>
 
 @{
     ViewBag.Title = "Index";
 }
 
+<nav class="navbar navbar-default navbar-fixed-top" id="main-nav" role="navigation">
+    <div class="container">
+        <!-- brand and toggle -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- navigation links -->
+        <div class="collapse navbar-collapse main-nav-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/Home">HOME</a></li>
+                <li><a href="/Profile">ABOUT ME</a></li>
+                <li><a href="/Skills">SKILLS</a></li>
+                <li><a href="/Experience">RESUME</a></li>
+                <li><a href="/Contact">CONTACTS</a></li>
+                <li><a href="/Projects">PROJECTS</a></li>
+                <li><a href="/BlogArticle">BLOG</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <section class="section blog" id="blog">
     <div class="container" id="blogContainer">
-        <div class="col-lg-push-4">
+        <div class="col-lg-12">
             <div class="row">
-                <p>
-                    @Html.ActionLink("Create New", "Create")
-                </p>
-                <h2 class="heading text-center">My Developer Blog</h2>
+                <div class="col-md-2"></div>
+                <div class="col-md-6">
+                    <img src="/img/hero-sm.png" />
+                </div>                
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-md-3">
+                    <p>@Html.ActionLink("Create New", "Create")</p>
+                </div>
+                <div class="col-md-7"></div>
+                <div class="col-md-2">
+                    <p><a href="/Account/Login">Register/Log In</a></p>
+                </div>
             </div>
         </div>
         <div class="col-lg-push-4">
-
             <table class="table">
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.CreateDate)
+                        <h2>Create Date</h2>
+                        @*@Html.DisplayNameFor(model => model.CreateDate)*@
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Title)
+                        <h2>Title</h2>
+                        @*@Html.DisplayNameFor(model => model.Title)*@
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Body)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MediaUrl)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Published)
+                        <h2>Published</h2>
+                        @*@Html.DisplayNameFor(model => model.Published)*@
                     </th>
                     <th></th>
                 </tr>
@@ -46,23 +82,26 @@
                             @Html.DisplayFor(modelItem => item.Title)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Body)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MediaUrl)
-                        </td>
-                        <td>
                             @Html.DisplayFor(modelItem => item.Published)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @* need to protect these if user is not logged in or registered
+                               Details should be available regardless but Edit and delete should not
+                                show unless the user is an admin*@
+
                             @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |                            
                             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                         </td>
                     </tr>
                 }
 
             </table>
+
+            <ul class="pager">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new{page, ViewBag.Query}))
+            </ul>
+
         </div>
     </div>
 </section>

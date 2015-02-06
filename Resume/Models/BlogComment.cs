@@ -11,7 +11,7 @@ namespace Resume.Models
         public int Id { get; set; }
         public int ArticleId {get; set;}
         public string AuthorId {get; set;}
-        public string Body {get; set;}
+        public string Message {get; set;}
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTimeOffset CreateDate {get; set;}
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]

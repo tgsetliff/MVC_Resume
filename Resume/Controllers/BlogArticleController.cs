@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Resume.Models;
+using Microsoft.AspNet.Identity;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Resume.Controllers
 {
@@ -14,10 +17,24 @@ namespace Resume.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: BlogArticles
-        public ActionResult Index()
+        // Get
+        [Authorize(Roles = "Admin")]
+        public ActionResult AdminIndex()
         {
             return View(db.Article.ToList());
+        }
+
+
+        public ActionResult Index(int? page, string query)
+        {
+            var posts = db.Article.AsQueryable();
+            if (!String.IsNullOrWhiteSpace(query))
+            {
+                posts = posts.Where(p => p.Title.Contains(query) || p.Body.Contains(query));
+                ViewBag.Query = query;
+            }
+            posts = posts.OrderByDescending(p => p.CreateDate);
+            return View(posts.ToPagedList(page ?? 1, 3));
         }
 
         // GET: BlogArticles/Details/5
@@ -113,6 +130,21 @@ namespace Resume.Controllers
             db.Article.Remove(blogArticle);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Comment([Bind(Include = "ArticleId, Message")] BlogComment blogComment)
+        {
+            if (ModelState.IsValid)
+            {
+                blogComment.AuthorId = User.Identity.GetUserId();
+                blogComment.CreateDate = DateTimeOffset.Now;
+                db.Comment.Add(blogComment);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Details", new { id = blogComment.ArticleId });
         }
 
         protected override void Dispose(bool disposing)
