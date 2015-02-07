@@ -19,9 +19,11 @@ namespace Resume.Controllers
 
         // Get
         [Authorize(Roles = "Admin")]
-        public ActionResult AdminIndex()
+        public ActionResult AdminIndex(int? page)
         {
-            return View(db.Article.ToList());
+            var posts = db.Article.AsQueryable();
+            posts = posts.OrderByDescending(p => p.CreateDate);
+            return View(posts.ToPagedList(page ?? 1, 10));
         }
 
 
@@ -68,11 +70,10 @@ namespace Resume.Controllers
             if (ModelState.IsValid)
             {
                 db.Article.Add(blogArticle);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                db.SaveChanges();                
             }
 
-            return View(blogArticle);
+            return RedirectToAction("Index");
         }
 
         // GET: BlogArticles/Edit/5

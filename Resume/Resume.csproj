@@ -198,6 +198,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="css\blog-post.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\main.css" />
     <Content Include="css\Syntax\shCore.css" />
     <Content Include="css\Syntax\shCoreDefault.css" />
@@ -246,6 +249,7 @@
     <Content Include="img\project-folder.png" />
     <Content Include="img\Resume-Icon.png" />
     <Content Include="img\skills.png" />
+    <Content Include="img\smallbricks.png" />
     <Content Include="img\tiick-tock-coming-soon-page.png" />
     <Content Include="img\vertical-line.png" />
     <Content Include="Javascript Exercise.html" />
@@ -300,6 +304,7 @@
     <Content Include="Scripts\Problem8.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Syntax\jquery.js" />
     <Content Include="Scripts\Syntax\shAutoloader.js" />
     <Content Include="Scripts\Syntax\shBrushAppleScript.js" />
     <Content Include="Scripts\Syntax\shBrushAS3.js" />
@@ -376,6 +381,7 @@
     <Content Include="Views\BlogArticle\Details.cshtml" />
     <Content Include="Views\BlogArticle\Edit.cshtml" />
     <Content Include="Views\BlogArticle\Index.cshtml" />
+    <Content Include="Views\BlogArticle\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -44,17 +44,6 @@
     <div class="container" id="details-body">           
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="well">
-                        <h4>Blog Search</h4>
-                        <form method="get" action="@Url.Action("Index")">
-                            <input type="search" name="query" value="@ViewBag.Query"/>
-                            <button type="submit">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-md-4">
                     <h2 class="heading">@Html.DisplayFor(model => model.Title)</h2>
                 </div>

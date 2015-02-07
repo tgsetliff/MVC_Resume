@@ -1,11 +1,38 @@
 ﻿@using PagedList;
 @using PagedList.Mvc;
 
+@using Resume.Models;
+
 @model PagedList.PagedList<Resume.Models.BlogArticle>
 
 @{
     ViewBag.Title = "Index";
 }
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Post - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/blog-post.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
 
 <nav class="navbar navbar-default navbar-fixed-top" id="main-nav" role="navigation">
     <div class="container">
@@ -34,74 +61,139 @@
 </nav>
 
 <section class="section blog" id="blog">
-    <div class="container" id="blogContainer">
-        <div class="col-lg-12">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-6">
-                    <img src="/img/hero-sm.png" />
-                </div>                
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="row">
-                <div class="col-md-3">
-                    <p>@Html.ActionLink("Create New", "Create")</p>
-                </div>
-                <div class="col-md-7"></div>
-                <div class="col-md-2">
-                    <p><a href="/Account/Login">Register/Log In</a></p>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <p>@Html.ActionLink("New Entry", "Create")</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-push-4">
-            <table class="table">
-                <tr>
-                    <th>
-                        <h2>Create Date</h2>
-                        @*@Html.DisplayNameFor(model => model.CreateDate)*@
-                    </th>
-                    <th>
-                        <h2>Title</h2>
-                        @*@Html.DisplayNameFor(model => model.Title)*@
-                    </th>
-                    <th>
-                        <h2>Published</h2>
-                        @*@Html.DisplayNameFor(model => model.Published)*@
-                    </th>
-                    <th></th>
-                </tr>
-
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-8">
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CreateDate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Published)
-                        </td>
-                        <td>
-                            @* need to protect these if user is not logged in or registered
-                               Details should be available regardless but Edit and delete should not
-                                show unless the user is an admin*@
-
+                    <img src="/img/smallbricks.png" />
+                    <div class="row" style="height:10px">
+                        <div class="col-md-4">
+                            <h5><span>@String.Format("{0:dddd, MMMM d, yyyy}", item.CreateDate)</span></h5>
+                        </div>
+                        <div class="col-md-8">
+                            <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                        </div>                      
+                    </div>
+                    <div class="row">
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(modelItem => item.Body)
+                        </div>                      
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-3">
                             @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |                            
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                        </td>
-                    </tr>
-                }
+                        </div>                        
+                    </div>
+                    <div class="row" style="height:10px"></div>
+        <!-- Comments Form -->
+                    @*@if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="well">
+                                <h4>Leave a Comment:</h4>
+                                <form action="@Url.Action("Comment")" method="post">
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("ArticleId", Model.Id)
+                                    <textarea name="Message" autofocus style="height:150px; width:800px"></textarea>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="well">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-8">
+                                            <p>To leave a comment, please Register <a href="/Account/Register">here </a> or if you are already registered, please Log In <a href="/Account/Login"> here.</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }*@
+                        <!-- Posted Comments -->
+                        <!-- Comment -->
+                        @*foreach (var c in Model.BlogComment.OrderByDescending(m=> m.Id))
+                        {
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4 class="media-heading"></h4>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-3">@c.CreateDate.DateTime.ToLongDateString()</div>
+                                            <div class="col-md-8">
+                                                @c.Message
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-3">@c.Author.FirstName @c.Author.LastName</div>
+                                            <div class="col-md-8"><hr /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }*@
+        }
 
-            </table>
+                <ul class="pager">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, ViewBag.Query }))
+                </ul>
 
-            <ul class="pager">
-                @Html.PagedListPager(Model, page => Url.Action("Index", new{page, ViewBag.Query}))
-            </ul>
-
-        </div>
     </div>
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <form method="get" action="@Url.Action("Index")">
+                            <input type="text" name="query" value="@ViewBag.Query" style="width:275px"/>
+                            @*<span class="input-group-btn">*@
+                                <button class="btn btn-default" type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            @*</span>*@
+                            @*<button type="submit">Submit</button>*@
+                        </form>
+                    </div>
+                    <!-- /.input-group -->
+                </div>
+                <!-- Blog Categories Well -->
+                <!-- Side Widget Well -->
+            </div>           
+        </div>
+        <!-- Footer -->
+    </div>
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Tom Setliff 2015</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
 </section>
+
+<!-- /.container -->
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>

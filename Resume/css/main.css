@@ -2214,7 +2214,7 @@ fieldset[disabled] .btn {
 
 .btn-default {
   color: #333333;
-  background-color: #ffffff;
+  background-color: #d8c1c1;
   border-color: #cccccc;
 }
 
@@ -9793,6 +9793,15 @@ ul.social-icons .icon:hover {
     padding-top: 20px;
     padding-bottom: 50px;
 	color: #000;	
+}
+
+/*------------------------------------------------*/
+/*	blog create page
+/*------------------------------------------------*/
+#blog-create {
+   background-color: #999;
+   padding-top: 50px;
+   padding-bottom: 100px;
 }
 
 /*------------------------------------------------*/
