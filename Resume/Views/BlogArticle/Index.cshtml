@@ -102,55 +102,6 @@
                         </div>                        
                     </div>
                     <div class="row" style="height:10px"></div>
-        <!-- Comments Form -->
-                    @*@if (User.Identity.IsAuthenticated)
-                        {
-                            <div class="well">
-                                <h4>Leave a Comment:</h4>
-                                <form action="@Url.Action("Comment")" method="post">
-                                    @Html.AntiForgeryToken()
-                                    @Html.Hidden("ArticleId", Model.Id)
-                                    <textarea name="Message" autofocus style="height:150px; width:800px"></textarea>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
-                            </div>
-                        }
-                        else
-                        {
-                            <div class="well">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="col-md-8">
-                                            <p>To leave a comment, please Register <a href="/Account/Register">here </a> or if you are already registered, please Log In <a href="/Account/Login"> here.</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }*@
-                        <!-- Posted Comments -->
-                        <!-- Comment -->
-                        @*foreach (var c in Model.BlogComment.OrderByDescending(m=> m.Id))
-                        {
-                            <div class="media">
-                                <div class="media-body">
-                                    <h4 class="media-heading"></h4>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">@c.CreateDate.DateTime.ToLongDateString()</div>
-                                            <div class="col-md-8">
-                                                @c.Message
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">@c.Author.FirstName @c.Author.LastName</div>
-                                            <div class="col-md-8"><hr /></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }*@
         }
 
                 <ul class="pager">
@@ -194,6 +145,6 @@
 
 <!-- /.container -->
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
+<script src="/js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="/scripts/bootstrap.min.js"></script>

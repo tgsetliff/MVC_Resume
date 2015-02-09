@@ -253,6 +253,8 @@
     <Content Include="img\tiick-tock-coming-soon-page.png" />
     <Content Include="img\vertical-line.png" />
     <Content Include="Javascript Exercise.html" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\jquery.js" />
     <Content Include="old_index.html" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\html5shiv.js" />

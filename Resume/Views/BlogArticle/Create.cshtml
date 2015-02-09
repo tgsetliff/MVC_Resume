@@ -25,7 +25,7 @@
                             <label>Create Date:</label>
                         </div>
                         <div class="col-md-4" id="blog-input">
-                            <input type="datetime" name="CreateDate" value="@if(@Model != null) { @Model.CreateDate}">
+                            <input type="datetime" name="CreateDate" autofocus value="@if(@Model != null) { @Model.CreateDate}">
                             @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                             <label>Body:</label>
                         </div>
                         <div class="col-md-6" id="blog-input">
-                            <textarea name="Body" autofocus style="height:150px; width:800px">
+                            <textarea name="Body" style="height:150px; width:800px">
                                 @if (Model != null)
                                 { @Model.Body}
                             </textarea>

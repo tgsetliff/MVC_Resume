@@ -55,6 +55,7 @@ namespace Resume.Controllers
         }
 
         // GET: BlogArticles/Create
+        [Authorize(Roles="Admin")]
         public ActionResult Create()
         {
             return View();
@@ -77,6 +78,7 @@ namespace Resume.Controllers
         }
 
         // GET: BlogArticles/Edit/5
+        [Authorize(Roles="Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -108,6 +110,7 @@ namespace Resume.Controllers
         }
 
         // GET: BlogArticles/Delete/5
+        [Authorize(Roles="Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -133,6 +136,7 @@ namespace Resume.Controllers
             return RedirectToAction("Index");
         }
 
+        // add a comment
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
