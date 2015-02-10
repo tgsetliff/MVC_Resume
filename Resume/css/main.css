@@ -9381,87 +9381,6 @@ ul.social-icons .icon:hover {
 .timeline{
     background-color: #999
 }
-/*.timeline {
-  background-image: url('../img/vertical-line.png?1378694750');
-  background-repeat: repeat-y;
-  background-position: 50% 0;
-  max-width: 960px;
-}
-.timeline .year {
-  background: #cf5037;
-  font-size: 1em;
-  line-height: 4;
-  color: #f4debe;
-  width: 6em;
-  border-radius: 50%;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-@media (min-width: 992px) {
-  .timeline .year {
-    margin-bottom: 30px;
-  }
-}
-.timeline .month {
-  display: block;
-  margin-bottom: 15px;
-  color: #aea08b;
-  font-size: 0.9em;
-}
-.timeline .month .icon {
-  margin-right: 5px;
-}
-.timeline .event {
-  width: 100%;
-  background: #f5e2c7;
-  border-color: #e5b267;
-  text-align: left;
-  margin: 50px 0;
-  padding: 1.3em;
-  color: #3c3c3c;
-}
-@media (min-width: 992px) {
-  .timeline .event {
-    width: 45%;
-    margin: 110px 2.5% 50px 2.5%;
-  }
-}
-.timeline .event:hover {
-  background: #f5e2c7;
-}
-.timeline .event:hover:after {
-  background: #2067ca;
-}
-.timeline .event:after {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  width: 25px;
-  height: 12px;
-  border-color: #f4debe;
-  border-width: 5px;
-  background: #cf5037;
-  top: 1.8em;
-  left: -29px;
-}
-@media (min-width: 600px) {
-  .timeline .event:nth-child(2n) {
-    margin-top: 50px;
-  }
-}
-.timeline .event:nth-child(2n):after {
-  right: -31px;
-}
-.timeline .heading {
-  color: #2067ca;
-  font-weight: 700;
-  font-size: 1.2em;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-align: left;
-  margin-bottom: 0;
-}*/
 
 /*------------------------------------------------*/
 /*	Projects
@@ -9471,8 +9390,8 @@ ul.social-icons .icon:hover {
     background-color: #999;
 }
 /*.projects .heading {
-  color: white;*/
-}
+  color: white;
+}*/
 
 /* project grid */
 .project-grid {
@@ -9795,6 +9714,23 @@ ul.social-icons .icon:hover {
 	color: #000;	
 }
 
+.blog-form input[type="text"],
+.blog-form input[type="datetime"],
+.blog-form input[type="checkbox"],
+.blog-form textarea {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  background-color: #7b7373;            /*#f3e4cd*/
+  max-width:600px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #000;                         /*#d0973d*/
+}
 /*------------------------------------------------*/
 /*	blog create page
 /*------------------------------------------------*/

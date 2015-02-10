@@ -34,7 +34,6 @@
     <div class="container" id="details-title">
         <div class="col-lg-12">
             <div class="row">
-                <div class="col-md-2"></div>
                 <div class="col-md-6">
                     <img src="/img/hero-sm.png" />
                 </div>
@@ -43,6 +42,7 @@
     </div>
     <div class="container" id="details-body">           
         <div class="col-md-12">
+            <div class="row"><p></p></div>
             <div class="row">
                 <div class="col-md-4">
                     <h2 class="heading">@Html.DisplayFor(model => model.Title)</h2>
@@ -84,10 +84,17 @@
                 </div>
             </div>
         </div>
-        <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-            @Html.ActionLink("Back to List", "Index")
-        </p>
+        @if (User.IsInRole("Admin"))
+            {
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+                }
+                else
+                {<p>
+                    @Html.ActionLink("Back to List", "Index")
+                </p>}
     </div>
     <div class="container">
         @if (User.Identity.IsAuthenticated)
@@ -115,7 +122,6 @@
             </div>
         }
     </div>
-
     <div class="container">
         @foreach(var c in Model.Comments.OrderByDescending(m=> m.Id))
         { 
@@ -130,9 +136,17 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-3">@c.Author.FirstName @c.Author.LastName</div>
-                    <div class="col-md-8"><hr /></div>
+                    <div class="col-md-8"></div>
                 </div>
             </div>
-        }
+            <div class="row">
+                <div class="col-md-1">
+                    @if(User.IsInRole("Admin"))
+                    {<p>@Html.ActionLink("Delete", "DltComment", new { id = c.Id })</p>}
+                    else
+                    {<p></p>}
+                </div>
+            </div>
+            }
     </div>
 </section>

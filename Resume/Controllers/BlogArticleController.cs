@@ -152,6 +152,17 @@ namespace Resume.Controllers
             return RedirectToAction("Details", new { id = blogComment.ArticleId });
         }
 
+        // POST: BlogComment/Delete/5
+        [Authorize(Roles="Admin")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult DltComment(int id)
+        {
+            BlogComment blogComment = db.Comment.Find(id);
+            db.Comment.Remove(blogComment);
+            db.SaveChanges();
+            return RedirectToAction("Details", new { id = blogComment.ArticleId });
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

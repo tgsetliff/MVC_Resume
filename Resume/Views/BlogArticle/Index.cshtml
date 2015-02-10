@@ -67,7 +67,7 @@
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-md-3">
-                        <p>@Html.ActionLink("New Entry", "Create")</p>
+                        <p>@Html.ActionLink("New Entry", "Create")</p>                           
                     </div>
                 </div>
             </div>
@@ -76,39 +76,50 @@
                 @foreach (var item in Model)
                 {
                     <img src="/img/smallbricks.png" />
-                    <div class="row" style="height:10px">
-                        <div class="col-md-4">
-                            <h5><span>@String.Format("{0:dddd, MMMM d, yyyy}", item.CreateDate)</span></h5>
-                        </div>
+                    <div class="row" style="height:10px"></div>
+                    <div class="row">
                         <div class="col-md-8">
                             <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
-                        </div>                      
+                        </div> 
                     </div>
                     <div class="row">
-                        
+                        <div class="col-md-4">
+                            <h5><span>@String.Format("{0:dddd, MMMM d, yyyy}", item.CreateDate)</span></h5>
+                        </div>                                            
                     </div>
+                    <div class="row"></div>
                     <div class="row">
-                        <div class="col-md-1"></div>
+                        @*<div class="col-md-1"></div>*@
                         <div class="col-md-10">
                             @Html.DisplayFor(modelItem => item.Body)
                         </div>                      
                     </div>
                     <div class="row">
-                        <div class="col-md-1"></div>
+                        @*<div class="col-md-1"></div>*@
                         <div class="col-md-3">
-                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <p>
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                                </p>
+                            }
                         </div>                        
                     </div>
                     <div class="row" style="height:10px"></div>
-        }
+            }
+            <ul class="pager">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, ViewBag.Query }))
+            </ul>
 
-                <ul class="pager">
-                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, ViewBag.Query }))
-                </ul>
-
-    </div>
+    </div>          
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
                 <!-- Blog Search Well -->
