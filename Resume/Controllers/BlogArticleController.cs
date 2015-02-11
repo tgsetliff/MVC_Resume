@@ -10,6 +10,7 @@ using Resume.Models;
 using Microsoft.AspNet.Identity;
 using PagedList;
 using PagedList.Mvc;
+using System.IO;
 
 namespace Resume.Controllers
 {
@@ -66,10 +67,52 @@ namespace Resume.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CreateDate,UpdateDate,Title,Body,MediaUrl,Published,Slug")] BlogArticle blogArticle)
+        public ActionResult Create([Bind(Include = "Id,Title,Body,MediaUrl,Published")] BlogArticle blogArticle, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+                if (image != null)
+                {
+                    if (image.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(image.FileName);
+                        var fileExtension = Path.GetExtension(fileName);
+                        if ((fileExtension == ".jpg") || (fileExtension == ".gif") || (fileExtension == ".png"))
+                        {
+                            var path = Server.MapPath("~/img/Blog/");
+                            // if directory doesnt exist, create it
+                            if (!Directory.Exists(path))
+                            {
+                                Directory.CreateDirectory(path);
+                            }
+                            else
+                                // if directory exists, check if file exists in directory
+                            {
+                                if(Directory.Exists(fileName))
+                                {
+                                    blogArticle.MediaUrl = "/img/Blog/" + fileName;
+                                }
+                                else
+                                {
+                                    blogArticle.MediaUrl = "/img/Blog/" + fileName;
+                                    image.SaveAs(Path.Combine(path, fileName));
+                                }
+                            }
+                            
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("image", "Invalid image extension. Only .gif, .jpg, and .png are allowed");
+                            return View(blogArticle);
+                        }
+                    }
+                }
+                
+
+                blogArticle.CreateDate = DateTimeOffset.Now;
+                blogArticle.UpdateDate = DateTimeOffset.Now;
+                blogArticle.Slug = blogArticle.Title;
+                                                                                                                                                      
                 db.Article.Add(blogArticle);
                 db.SaveChanges();                
             }
@@ -98,11 +141,48 @@ namespace Resume.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CreateDate,UpdateDate,Title,Body,MediaUrl,Published,Slug")] BlogArticle blogArticle)
+        public ActionResult Edit([Bind(Include = "Id,CreateDate,Title,Body,MediaUrl,Published")] BlogArticle blogArticle, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+                if (image != null)
+                {
+                    if (image.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(image.FileName);
+                        var fileExtension = Path.GetExtension(fileName);
+                        if ((fileExtension == ".jpg") || (fileExtension == ".gif") || (fileExtension == ".png"))
+                        {
+                            var path = Server.MapPath("~/img/Blog/");
+                            // if directory doesnt exist, create it
+                            if (!Directory.Exists(path))
+                            {
+                                Directory.CreateDirectory(path);
+                            }
+                            else
+                            // if directory exists, check if file exists in directory
+                            {
+                                if (Directory.Exists(fileName))
+                                {
+                                    blogArticle.MediaUrl = "/img/Blog/" + fileName;
+                                }
+                                else
+                                {
+                                    blogArticle.MediaUrl = "/img/Blog/" + fileName;
+                                    image.SaveAs(Path.Combine(path, fileName));
+                                }
+                            }
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("image", "Invalid image extension. Only .gif, .jpg, and .png are allowed");
+                            return View(blogArticle);
+                        }
+                    }
+                }
+               
                 db.Entry(blogArticle).State = EntityState.Modified;
+                blogArticle.UpdateDate = DateTimeOffset.Now;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -152,10 +232,10 @@ namespace Resume.Controllers
             return RedirectToAction("Details", new { id = blogComment.ArticleId });
         }
 
-        // POST: BlogComment/Delete/5
-        [Authorize(Roles="Admin")]
-        //[ValidateAntiForgeryToken]
-        public ActionResult DltComment(int id)
+        // delete a comment
+        [HttpPost, ActionName("DltComment")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DltCommentConfirmed(int id)
         {
             BlogComment blogComment = db.Comment.Find(id);
             db.Comment.Remove(blogComment);

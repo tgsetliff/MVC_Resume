@@ -9726,7 +9726,7 @@ ul.social-icons .icon:hover {
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
-  background-color: #7b7373;            /*#f3e4cd*/
+  background-color: rgba(123, 115, 115, 0.23);            /*#f3e4cd*/
   max-width:600px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   color: #000;                         /*#d0973d*/

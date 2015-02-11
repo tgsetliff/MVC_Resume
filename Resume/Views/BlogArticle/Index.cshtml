@@ -75,7 +75,14 @@
             <div class="col-lg-8">
                 @foreach (var item in Model)
                 {
-                    <img src="/img/smallbricks.png" />
+                    if (item.MediaUrl != null)
+                    {
+                        <img src="@Url.Content(item.MediaUrl)" class="img-responsive" />
+                    }
+                    else
+                    {
+                        <img src="/img/smallbricks.png" />
+                    }
                     <div class="row" style="height:10px"></div>
                     <div class="row">
                         <div class="col-md-8">
@@ -91,7 +98,7 @@
                     <div class="row">
                         @*<div class="col-md-1"></div>*@
                         <div class="col-md-10">
-                            @Html.DisplayFor(modelItem => item.Body)
+                            @Html.Raw(item.Body)
                         </div>                      
                     </div>
                     <div class="row">

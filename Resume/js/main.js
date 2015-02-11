@@ -34,11 +34,6 @@
 			
 		}
 
-		// form validation 
-		Modernizr.load({
-			test: Modernizr.input.autocomplete,		
-			nope: ['assets/js/jquery.validate.js', 'assets/js/jquery.validate.bootstrap.js'],
-		});
 
 	});
 
