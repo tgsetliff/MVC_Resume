@@ -18,7 +18,7 @@ namespace Resume.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // Get
+        // Admin Index
         [Authorize(Roles = "Admin")]
         public ActionResult AdminIndex(int? page)
         {
@@ -27,7 +27,7 @@ namespace Resume.Controllers
             return View(posts.ToPagedList(page ?? 1, 10));
         }
 
-
+        // Index
         public ActionResult Index(int? page, string query)
         {
             var posts = db.Article.AsQueryable();
@@ -41,18 +41,19 @@ namespace Resume.Controllers
         }
 
         // GET: BlogArticles/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string Slug)
         {
-            if (id == null)
+            if(String.IsNullOrWhiteSpace(Slug))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogArticle blogArticle = db.Article.Find(id);
-            if (blogArticle == null)
+            BlogArticle post = db.Article.FirstOrDefault(p => p.Slug == Slug);
+            if (post == null) 
             {
                 return HttpNotFound();
             }
-            return View(blogArticle);
+            
+            return View(post);
         }
 
         // GET: BlogArticles/Create
@@ -71,6 +72,17 @@ namespace Resume.Controllers
         {
             if (ModelState.IsValid)
             {
+                var Slug = StringUtilities.URLFriendly(blogArticle.Title);
+                if(String.IsNullOrWhiteSpace(Slug))
+                {
+                    ModelState.AddModelError("Title", "Invalid title.");
+                    return View(blogArticle);
+                }
+                if(db.Article.Any(p=>p.Slug == Slug))
+                {
+                    ModelState.AddModelError("Title", "The title must be unique.");
+                    return View(blogArticle);
+                }
                 if (image != null)
                 {
                     if (image.ContentLength > 0)
@@ -107,12 +119,9 @@ namespace Resume.Controllers
                         }
                     }
                 }
-                
-
                 blogArticle.CreateDate = DateTimeOffset.Now;
                 blogArticle.UpdateDate = DateTimeOffset.Now;
-                blogArticle.Slug = blogArticle.Title;
-                                                                                                                                                      
+                blogArticle.Slug = Slug;                                                                                                                                                      
                 db.Article.Add(blogArticle);
                 db.SaveChanges();                
             }
@@ -133,6 +142,7 @@ namespace Resume.Controllers
             {
                 return HttpNotFound();
             }
+          
             return View(blogArticle);
         }
 
@@ -145,6 +155,17 @@ namespace Resume.Controllers
         {
             if (ModelState.IsValid)
             {
+                var Slug = StringUtilities.URLFriendly(blogArticle.Title);
+                if (String.IsNullOrWhiteSpace(Slug))
+                {
+                    ModelState.AddModelError("Title", "Invalid title.");
+                    return View(blogArticle);
+                }
+                if (db.Article.Any(p => p.Slug == Slug))
+                {
+                    ModelState.AddModelError("Title", "The title must be unique.");
+                    return View(blogArticle);
+                }
                 if (image != null)
                 {
                     if (image.ContentLength > 0)
@@ -179,10 +200,10 @@ namespace Resume.Controllers
                             return View(blogArticle);
                         }
                     }
-                }
-               
+                }              
                 db.Entry(blogArticle).State = EntityState.Modified;
                 blogArticle.UpdateDate = DateTimeOffset.Now;
+                blogArticle.Slug = Slug;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -229,7 +250,23 @@ namespace Resume.Controllers
                 db.Comment.Add(blogComment);
                 db.SaveChanges();
             }
-            return RedirectToAction("Details", new { id = blogComment.ArticleId });
+            return RedirectToAction("Details", new { Slug = blogComment.Article.Slug });
+        }
+
+        // GET: BlogArticles/Delete/5
+        [Authorize(Roles = "Admin")]
+        public ActionResult DltComment(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BlogComment blogComment = db.Comment.Find(id);
+            if (blogComment == null)
+            {
+                return HttpNotFound();
+            }
+            return View(blogComment);
         }
 
         // delete a comment
@@ -240,7 +277,7 @@ namespace Resume.Controllers
             BlogComment blogComment = db.Comment.Find(id);
             db.Comment.Remove(blogComment);
             db.SaveChanges();
-            return RedirectToAction("Details", new { id = blogComment.ArticleId });
+            return RedirectToAction("Details", new { Slug = blogComment.Article.Slug });
         }
 
         protected override void Dispose(bool disposing)
