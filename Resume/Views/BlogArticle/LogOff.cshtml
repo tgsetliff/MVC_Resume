@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "LogOff";
+}
+
+<h2>LogOff</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

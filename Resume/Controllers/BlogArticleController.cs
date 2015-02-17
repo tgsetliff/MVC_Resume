@@ -11,12 +11,21 @@ using Microsoft.AspNet.Identity;
 using PagedList;
 using PagedList.Mvc;
 using System.IO;
+using System.Web.Security;
 
 namespace Resume.Controllers
 {
     public class BlogArticleController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        [HttpPost]
+        public ActionResult LogOff()
+        {
+            Request.Cookies.Remove("UserId");
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Home", "HomeController");
+        }
 
         // Admin Index
         [Authorize(Roles = "Admin")]
@@ -241,16 +250,20 @@ namespace Resume.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Comment([Bind(Include = "ArticleId, Message")] BlogComment blogComment)
+        public ActionResult Comment([Bind(Include = "ArticleId, Message")] string Slug, BlogComment blogComment)
         {
             if (ModelState.IsValid)
             {
-                blogComment.AuthorId = User.Identity.GetUserId();
-                blogComment.CreateDate = DateTimeOffset.Now;
-                db.Comment.Add(blogComment);
-                db.SaveChanges();
+                if(blogComment.Message != null)
+                {
+                    blogComment.AuthorId = User.Identity.GetUserId();
+                    blogComment.CreateDate = DateTimeOffset.Now;
+                    blogComment.UpdateDate = DateTimeOffset.Now;
+                    db.Comment.Add(blogComment);
+                    db.SaveChanges();
+                }                
             }
-            return RedirectToAction("Details", new { Slug = blogComment.Article.Slug });
+            return RedirectToAction("Details", new { Slug = Slug});
         }
 
         // GET: BlogArticles/Delete/5
@@ -275,9 +288,11 @@ namespace Resume.Controllers
         public ActionResult DltCommentConfirmed(int id)
         {
             BlogComment blogComment = db.Comment.Find(id);
+            BlogArticle blogArticle = db.Article.Find(blogComment.ArticleId);
+
             db.Comment.Remove(blogComment);
             db.SaveChanges();
-            return RedirectToAction("Details", new { Slug = blogComment.Article.Slug });
+            return RedirectToAction("Details", new { Slug = blogArticle.Slug });
         }
 
         protected override void Dispose(bool disposing)

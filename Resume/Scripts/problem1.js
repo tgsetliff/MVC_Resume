@@ -4,7 +4,7 @@ function fndLg() {
     var lgArr = [];
     lgArr = p1Arr.split(",");
 
-    var largest = 0;
+    var largest = parseInt(lgArr[0]);
 
     for (i = 0; i < lgArr.length; i++) {
         if (largest < parseInt(lgArr[i])) {

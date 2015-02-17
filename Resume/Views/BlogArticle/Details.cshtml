@@ -104,17 +104,18 @@
                 </p>}
     </div>
     <div class="container">
-                @if (User.Identity.IsAuthenticated)
+        @if (User.Identity.IsAuthenticated)
         {
-                    <div class="well" style="width:600px; background-color:rgba(210, 209, 209, 0.59)">
-                        <h4>Leave a Comment:</h4>
-                        <form action="@Url.Action("Comment")" method="post">
-                            @Html.AntiForgeryToken()
-                            @Html.Hidden("ArticleId", Model.Id)
-                            <textarea name="Message" autofocus style="height:150px; max-width:550px; width:500px"></textarea>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
+            <div class="well" style="width:600px; background-color:rgba(210, 209, 209, 0.59)">
+                <h4>Leave a Comment:</h4>
+                <form action="@Url.Action("Comment")" method="post">
+                    @Html.AntiForgeryToken()
+                    @Html.Hidden("ArticleId", Model.Id)
+                    @Html.Hidden("Slug", Model.Slug)
+                    <textarea name="Message" autofocus style="height:150px; max-width:550px; width:500px"></textarea>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         }
         else
         {
@@ -122,7 +123,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="col-md-8">
-                            <p>To leave a comment, please Register <a href="/Account/Register">here </a> or if you are already registered, please Log In <a href="/Account/Login"> here.</a></p>
+                            <p>To leave a comment, please Register <a href="@Url.Action("Register", "Account", routeValues: new {@returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})">here </a> or if you are already registered, please Log In <a href="@Url.Action("Login", "Account", routeValues: new {@returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})"> here.</a></p>
                         </div>
                     </div>
                 </div>

@@ -21,10 +21,39 @@
         }
     </style>
 
-    <div id="header">
-        <h1>Javascript Exercise</h1>
+    <nav class="navbar navbar-default navbar-fixed-top" id="main-nav" role="navigation">
+        <div class="container">
+            <!-- brand and toggle -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- navigation links -->
+            <div class="collapse navbar-collapse main-nav-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Home">HOME</a></li>
+                    <li><a href="/Profile">ABOUT ME</a></li>
+                    <li><a href="/Skills">SKILLS</a></li>
+                    <li><a href="/Experience">RESUME</a></li>
+                    <li><a href="/Contact">CONTACTS</a></li>
+                    <li><a href="/Projects">PROJECTS</a></li>
+                    <li><a href="/BlogArticle">BLOG</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row" style="padding:30px">
+            <div id="header">
+                <h1>Javascript Exercise</h1>
+            </div>
+        </div>
     </div>
-
     <div class="container" id="body">
         <div class="row" style="padding:5px">
             <div class="col-md-12">
@@ -143,7 +172,7 @@
                                                     var p1Arr = document.getElementById('prob1').value;
                                                     var lgArr = [];
                                                     lgArr = p1Arr.split(",");
-                                                    var largest = 0;
+                                                    var largest = parseInt(lgArr[i]);
                                                     for (i = 0; i < lgArr.length; i++) {
                                                         if (largest < parseInt(lgArr[i])) {
                                                             largest = parseInt(lgArr[i]);
@@ -353,12 +382,31 @@
                                 <div class="col-lg-6">
                                     <div id="prob5Input">
                                         <button type="button" onclick="fizzBuzz()">FizzBuzz</button><br />
+                                    <!--</div>
+                                    <div class="col-md-3">-->
+                                        <label>Result: </label>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <label>Result: </label>
-                                    <input type="text" size="20" height="15" id="prob5Output" disabled />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">                                    
+                                    <div class="row">
+                                        <div class="col-md-2"><input type="text" style="width:600px" id="prob5AOutput" disabled /></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2"><input type="text" style="width:600px" id="prob5BOutput" disabled /></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2"><input type="text" style="width:600px" id="prob5COutput" disabled /></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2"><input type="text" style="width:600px" id="prob5DOutput" disabled /></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2"><input type="text" style="width:600px" id="prob5EOutput" disabled /></div>
+                                    </div> 
                                 </div>
+                                                               
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div style="margin-right: 15px;">

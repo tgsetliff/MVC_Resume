@@ -66,9 +66,18 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-md-3">
-                        <p>@Html.ActionLink("New Entry", "Create")</p>                           
-                    </div>
+                    @if(User.Identity.IsAuthenticated)
+                    {
+                        <div class="col-md-3">
+                            <p>@Html.ActionLink("New Entry", "Create")</p>                           
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-md-3">
+                            <p><a href="@Url.Action("Login", "Account", routeValues: new {@returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})">Log In</a></p>
+                        </div>
+                    }
                 </div>
             </div>
             <!-- Blog Post Content Column -->
@@ -115,7 +124,7 @@
                             else
                             {
                                 <p>
-                                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                                    @Html.ActionLink("Details", "Details", new { Slug = item.Slug })
                                 </p>
                             }
                         </div>                        
