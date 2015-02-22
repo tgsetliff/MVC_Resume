@@ -19,14 +19,6 @@ namespace Resume.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [HttpPost]
-        public ActionResult LogOff()
-        {
-            Request.Cookies.Remove("UserId");
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Home", "HomeController");
-        }
-
         // Admin Index
         [Authorize(Roles = "Admin")]
         public ActionResult AdminIndex(int? page)
@@ -170,11 +162,15 @@ namespace Resume.Controllers
                     ModelState.AddModelError("Title", "Invalid title.");
                     return View(blogArticle);
                 }
-                if (db.Article.Any(p => p.Slug == Slug))
+                if (blogArticle.Slug != Slug)
                 {
-                    ModelState.AddModelError("Title", "The title must be unique.");
-                    return View(blogArticle);
+                    if (db.Article.Any(p => p.Slug == Slug && p.Id != blogArticle.Id))
+                    {
+                        ModelState.AddModelError("Title", "The title must be unique.");
+                        return View(blogArticle);
+                    }
                 }
+                
                 if (image != null)
                 {
                     if (image.ContentLength > 0)

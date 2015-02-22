@@ -9064,9 +9064,6 @@ a:hover, a:focus {
   color: #6C77AB;
 }
 
-.section {
-  padding: 90px 0;
-}
 .section .heading {
   font-family: "Josefin Slab Light";
   color: #0B0A0A;
@@ -9241,11 +9238,11 @@ a:hover, a:focus {
 
 /* avatar */
 .avatar {
-  -webkit-border-radius: 25%;
-  -moz-border-radius: 25%;
-  -ms-border-radius: 25%;
-  -o-border-radius: 25%;
-  border-radius: 25%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
@@ -9256,11 +9253,11 @@ a:hover, a:focus {
 }
 .avatar img {
   /* we can't use percentage value for image with border-radius   was 225*/
-  -webkit-border-radius: 175px;
-  -moz-border-radius: 175px;
-  -ms-border-radius: 175px;
-  -o-border-radius: 175px;
-  border-radius: 175px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
   width: 100%;
   margin: 0 auto;
 }
@@ -9282,18 +9279,28 @@ a:hover, a:focus {
 
 /* newtab cell */
 .newtab-cell{
-    -webkit-border-radius: 10%;
-    -moz-border-radius: 10%;
-    -ms-border-radius:10%;
-    -o-border-radius: 10%;
-    border-radius: 10%;
-    border: 10px solid rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 0%;
+    -moz-border-radius:0%;
+    -ms-border-radius:0%;
+    -o-border-radius:0%;
+    border-radius:0%;
+    border: 4px solid rgba(0, 0, 0, 0.1);
     height: 95px; 
-    background-color: #8b8383;
+    background-color: #D8D5D5;
+}
+
+.newtab-cell i{
+    position: absolute;
+    top: 60px;
+    right: 40px;
+    color: black;
 }
 
 /* tab title */
 .tab-title{
+    position:absolute;
+    top: 10px;
+    left: 30px;
     font-size: 16px;
     color: #000;
     text-align: center;
@@ -9302,7 +9309,7 @@ a:hover, a:focus {
 /*	About Me
 /*------------------------------------------------*/
 .about-me {
-   background-color: #999;
+   background-color: #D8D5D5;
 }
 
 .social .sub-heading {
@@ -9368,18 +9375,18 @@ ul.social-icons .icon:hover {
 /*	Skills
 /*------------------------------------------------*/
 .skills {
-    background-color: #999;
+    background-color: #D8D5D5;
 }
 /*------------------------------------------------*/
 /*	Resume
 /*------------------------------------------------*/
 .resume {
-    background-color: #999;
+    background-color: #D8D5D5;
 }
 
 /* timeline */
 .timeline{
-    background-color: #999
+    background-color: #D8D5D5
 }
 
 /*------------------------------------------------*/
@@ -9387,7 +9394,7 @@ ul.social-icons .icon:hover {
 /*------------------------------------------------*/
 
 .projects {
-    background-color: #999;
+    background-color: #D8D5D5;
 }
 /*.projects .heading {
   color: white;
@@ -9550,7 +9557,7 @@ ul.social-icons .icon:hover {
 /*	Contacts
 /*------------------------------------------------*/
 .contacts {
-  background-color: #999;
+  background-color: #D8D5D5;
 }
 .contacts .google-map {
   margin: 40px 0;
@@ -9586,7 +9593,7 @@ ul.social-icons .icon:hover {
 }
 @media (min-width: 768px) {
   .contact-form input#name, .contact-form input#email {
-    width: 49%;
+    width: 80%;
   }
 }
 .contact-form input#subject {
@@ -9617,6 +9624,7 @@ ul.social-icons .icon:hover {
   background-color: #cccccc;            /*#f3e4cd*/
   border: 1px solid #e9cea3;
   color: #000;                         /*#d0973d*/
+  max-width:600px;
 }
 .contact-form input[type="text"]::-webkit-input-placeholder,
 .contact-form input[type="email"]::-webkit-input-placeholder,
@@ -9687,7 +9695,7 @@ ul.social-icons .icon:hover {
 /*	blog page
 /*------------------------------------------------*/
 .blog {
-   background-color: #999;
+   background-color: #D8D5D5;
    padding-top: 50px;
    padding-bottom: 100px;
 }
@@ -9696,7 +9704,7 @@ ul.social-icons .icon:hover {
 /*	blog details page
 /*------------------------------------------------*/
 .details {
-   background-color: #999;
+   background-color: #D8D5D5;
    padding-top: 50px;
    padding-bottom: 100px;
 }
@@ -9735,7 +9743,7 @@ ul.social-icons .icon:hover {
 /*	blog create page
 /*------------------------------------------------*/
 #blog-create {
-   background-color: #999;
+   background-color: #D8D5D5;
    padding-top: 50px;
    padding-bottom: 100px;
 }

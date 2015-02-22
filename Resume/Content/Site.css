@@ -1,6 +1,17 @@
 ﻿body {
     padding-top: 5px;
-    padding-bottom: 5px;
+    height:100%;
+}
+
+html {
+    height:100%;
+}
+.wrapper {
+    height:100%;
+}
+
+.section {
+    min-height:100%;
 }
 
 /* Set padding to keep content from hitting the edges */
