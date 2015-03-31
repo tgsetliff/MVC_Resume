@@ -27,7 +27,7 @@ namespace Resume
             var MyPassword = ConfigurationManager.AppSettings["Password"];
 
             SendGridMessage mail = new SendGridMessage();
-            mail.From = new MailAddress("noreply@junk.com");
+            mail.From = new MailAddress("noreply@bugtracker.com");
             mail.AddTo(message.Destination);
             mail.Subject = message.Subject;
             mail.Text = message.Body;

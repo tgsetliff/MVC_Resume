@@ -229,11 +229,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="img\22d47bjg.bmp" />
     <Content Include="img\big-thing-landing-page.png" />
+    <Content Include="img\Blog\dolibarr_bug.png" />
+    <Content Include="img\Blog\light_bulb.png" />
     <Content Include="img\Blog\pantherlogo.jpg" />
+    <Content Include="img\Blog\success.jpg" />
     <Content Include="img\bricks.png" />
     <Content Include="img\c.png" />
     <Content Include="img\contact.png" />
     <Content Include="img\development_skills.png" />
+    <Content Include="img\dolibarr_bug.png" />
     <Content Include="img\glyphicons\glyphicons-11-envelope.png" />
     <Content Include="img\glyphicons\glyphicons-263-spade.png" />
     <Content Include="img\glyphicons\glyphicons-30-notes-2.png" />

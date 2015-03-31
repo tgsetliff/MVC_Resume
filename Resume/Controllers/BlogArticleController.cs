@@ -205,7 +205,10 @@ namespace Resume.Controllers
                             return View(blogArticle);
                         }
                     }
-                }              
+                }  
+                //should be testing field to see if modified to determine if updated with below
+                //if(db.Entry(blogArticle).Property(p=> p.Body).IsModified)
+
                 db.Entry(blogArticle).State = EntityState.Modified;
                 blogArticle.UpdateDate = DateTimeOffset.Now;
                 blogArticle.Slug = Slug;
