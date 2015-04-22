@@ -9366,10 +9366,11 @@ ul.social-icons li a:hover {
   text-decoration: none;
 }
 ul.social-icons .icon {
-  font-size: 22px;
+  font-size: 48px;
+  color: white; 
 }
 ul.social-icons .icon:hover {
-  color: #7c6d57;
+  color: #C7C5C3;
 }
 /*------------------------------------------------*/
 /*	Skills
